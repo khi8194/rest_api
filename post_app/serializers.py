@@ -25,3 +25,11 @@
   - validation (데이터 검증) : 역직렬화시 클라이언트가 보낸 데이터를 필드별로 유효성 검사 처리
   
 """
+
+from rest_framework import serializers
+from .models import Post
+
+class PostSerializer(serializers.ModelSerializer):  # 공식!
+  class Meta:
+    model : Post
+    field = ['id', 'title', 'body', 'slug', 'category', 'created', 'updated']
